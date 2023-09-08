@@ -19,6 +19,11 @@ constructor(private userRepository : UserRepository){}
     return this.userRepository.save(user);
   }
 
+
+  findUserById(id : number){
+    return this.userRepository.findOneOrFail({where : { id : id}});
+  }
+
   findAll() {
     return this.userRepository.find();
   }

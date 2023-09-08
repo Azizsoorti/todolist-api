@@ -6,6 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { TodoModule } from './todo/todo.module';
 
+// FIND ALL USERS
+// ADD USER
+// DELETE USER
+
+
+// ADD TODO BASED ON USER ID
+// FIND ALL BASED ON USER ID (NOT COMPLETED)
+// FIND ALL COMPLETED TODOS BASED ON USER ID (COMPLETED)
+// MARK TODO AS COMPLETED BASED ON TODO ID
+//DELETE TODO BASED ON TODO ID
 @Module({
   imports: [
   ConfigModule.forRoot({isGlobal : true , envFilePath : [".local.env"]}),
