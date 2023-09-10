@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
-import { TodoRepository } from './dto/repo/todo.repository';
+import { TodoRepository } from './repo/todo.repository';
 import { Todo } from './entities/todo.entity';
 import { UserService } from 'src/user/user.service';
 
