@@ -5,6 +5,7 @@ import { ConfigModule , ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
 import { TodoModule } from './todo/todo.module';
+import { AuthModule } from './auth/auth.module';
 
 // FIND ALL USERS
 // ADD USER
@@ -29,10 +30,12 @@ import { TodoModule } from './todo/todo.module';
       entities: [__dirname + "/**/*.entity{.ts,.js}"],
       synchronize: true,
       logging: true
+  
     }),
   
   UserModule,
   TodoModule,
+  AuthModule
   ],
 
 
@@ -55,6 +58,7 @@ import { TodoModule } from './todo/todo.module';
 //   }),
 //   UserModule,
 //   TodoModule,
+// AuthModule
 //   ],
   controllers: [AppController],
   providers: [AppService],

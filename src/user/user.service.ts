@@ -21,7 +21,7 @@ constructor(private userRepository : UserRepository){}
 
 
   findUserById(id : number){
-    return this.userRepository.findOneOrFail({where : { id : id}});
+    return this.userRepository.findOne({where : { id : id}});
   }
 
   findAll() {
