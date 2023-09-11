@@ -2,8 +2,11 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } fro
 import { TodoService } from './todo.service';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
+import {ApiTags, ApiSecurity} from '@nestjs/swagger';
 
 @Controller('todo')
+@ApiTags("Todo")
+@ApiSecurity("JWT-auth")
 export class TodoController {
   constructor(private readonly todoService: TodoService) {}
 
@@ -18,7 +21,7 @@ export class TodoController {
   }
 
 
-  @Get("/findAllNotCompleted/:userId")
+  @Get("/findAllCompleted/:userId")
   findAllTodosByUserIdCompleted(@Param("userId") userId :number) {
     return this.todoService.findAllTodoByUserCompleted(Number (userId));
   }

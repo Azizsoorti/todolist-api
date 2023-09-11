@@ -1,18 +1,20 @@
-import { Controller, Post, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Post, Req, UseGuards } from "@nestjs/common";
 import {AuthGuard} from '@nestjs/passport'
 import { JwtService} from '@nestjs/jwt';
 import { User } from "src/user/entities/user.entity";
-
+import {ApiTags} from '@nestjs/swagger';
+import { LoginDto } from "./dto/login.dto";
 
 @Controller('auth')
+@ApiTags("Login")
 export class AuthController {
 
 constructor(private jwtService : JwtService){}
 
 
-    @Post('login')
+    @Post('/login')
     @UseGuards(AuthGuard('local')) 
-    login( @Req() req ) {
+    login( @Req() req , @Body() loginDto : LoginDto) {
         //jwt token
 const user : User = req.user;
 const payload = {
@@ -22,7 +24,7 @@ const payload = {
     email : user.email,
     role : user.role,
 
-}
+};
        
         return {token : this.jwtService.sign(payload)};
 }
